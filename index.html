@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title>Spiral Generator by Andy Green</title>
+		
+		<link href="http://fonts.googleapis.com/css?family=Lato:400italic,900italic" rel="stylesheet" />
+		<link href="styles.css" rel="stylesheet" />
+		
+		<script src="spiralgen.js"></script>
+		
+	</head>
+
+	<body>
+	
+		<div class="wrapper">
+
+			<h1>Spiral Generator <span>by <a href="http://andygrn.co.uk">Andy Green</a></span></h1>
+			
+			<a href="http://funkygroovytasty.co.uk" id="link-home">Home</a>
+			
+			<canvas id="canvas" width="956" height="536">
+			
+				<p>Your browser doesn't support canvas, so you won't see anything. Update your software and we might be in business!</p>
+
+			</canvas>
+			
+			<div id="compatibility-message">
+			
+				<p>Unfortunately, your browser doesn't support range slider inputs, so you'll have to change the parameters yourself. Click on the black numbers below and type your own. There's no restriction, so you might break it!</p>
+
+			</div>
+			
+			<fieldset id="controls">
+			
+				<legend>Controls</legend>
+				
+				<button id="control-draw">Draw</button>
+				<button id="control-save">Save</button>
+				<button id="control-clear">Clear</button>
+			
+			</fieldset>
+
+			<fieldset id="params-spiral">
+			
+				<legend>Spiral Shape</legend>
+			
+				<div>
+					<label for="param-spiral-sharpness">Sharpness</label>
+					<input id="param-spiral-sharpness" type="range" value="35" step="1" min="1" max="50" />
+					<span id="param-spiral-sharpness-value"></span>
+				</div>
+				
+				<div>
+					<label for="param-spiral-length">Length</label>
+					<input id="param-spiral-length" type="range" value="380" step="50" min="50" max="1000" />
+					<span id="param-spiral-length-value"></span>
+				</div>
+				
+				<div>
+					<label for="param-spiral-inner-radius">Inner Radius</label>
+					<input id="param-spiral-inner-radius" type="range" value="7" step="1" min="0" max="10" />
+					<span id="param-spiral-inner-radius-value"></span>
+				</div>
+				
+				<div>
+					<label for="param-spiral-outer-radius">Outer Radius</label>
+					<input id="param-spiral-outer-radius" type="range" value="5" step="1" min="1" max="10" />
+					<span id="param-spiral-outer-radius-value"></span>
+				</div>
+				
+				<div>
+					<label for="param-spiral-spread">Spread</label>
+					<input id="param-spiral-spread" type="range" value="2" step="1" min="0" max="10" />
+					<span id="param-spiral-spread-value"></span>
+				</div>
+			
+			</fieldset>
+			
+			<fieldset id="params-line">
+			
+				<legend>Line Appearance</legend>
+				
+				<div>
+					<label for="param-line-initial-opacity">Initial Opacity</label>
+					<input id="param-line-initial-opacity" type="range" value="5" step="1" min="1" max="10" />
+					<span id="param-line-initial-opacity-value"></span>
+				</div>
+				
+				<div>
+					<label for="param-line-fade-amount">Fade Amount</label>
+					<input id="param-line-fade-amount" type="range" value="2" step="1" min="0" max="10" />
+					<span id="param-line-fade-amount-value"></span>
+				</div>
+				
+				<div>
+					<label for="param-line-thickness">Thickness</label>
+					<input id="param-line-thickness" type="range" value="1" step="1" min="1" max="10" />
+					<span id="param-line-thickness-value"></span>
+				</div>
+			
+			</fieldset>
+		
+			<footer>
+			
+				<p>Built with Javascript and canvas. Source code can be found <a href="spiralgen.js">here</a>. Enjoy!</p>
+				
+				<p>To get the best experience, use the latest version of <a href="http://www.opera.com/download/">Opera</a>, <a href="http://www.google.com/chrome/">Chrome</a> or <a href="http://www.apple.com/safari/">Safari</a>.</p>
+			
+			</footer>
+			
+		</div>
+		
+		<script> init(); </script>
+		
+	</body>
+	
+</html>
