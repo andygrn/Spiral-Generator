@@ -26,7 +26,9 @@ function init()
 	}
 	
 	canvas = document.getElementById('canvas');
+	
 	pen = canvas.getContext('2d');
+	pen.translate(canvas.width / 2, canvas.height / 2);
 	
 	parameter_input_ids = [
 		'param-spiral-sharpness',
@@ -77,9 +79,7 @@ function initUI()
 function prepareDraw()
 {
 
-	var values = [],
-		centre_x = canvas.width / 2,
-		centre_y = canvas.height / 2;
+	var values = [];
 	
 	for (var i in parameter_inputs)
 	{
@@ -89,7 +89,6 @@ function prepareDraw()
 	}
 
 	drawSpiral(
-		[ centre_x , centre_y ],
 		values[0],
 		values[1],
 		values[2] * 10,
@@ -102,11 +101,11 @@ function prepareDraw()
 
 }
 
-function drawSpiral(centre, sharpness, length, inner_radius, outer_radius, spread, initial_opacity, fade_amount, thickness)
+function drawSpiral(sharpness, length, inner_radius, outer_radius, spread, initial_opacity, fade_amount, thickness)
 {
 
-	var x = (inner_radius * Math.cos(t)) + centre[0],
-		y = (inner_radius * Math.sin(t)) + centre[1],
+	var x = inner_radius * Math.cos(0),
+		y = inner_radius * Math.sin(0),
 		t = 0;
 	
 	pen.lineWidth = thickness;
@@ -117,8 +116,8 @@ function drawSpiral(centre, sharpness, length, inner_radius, outer_radius, sprea
 		pen.beginPath();
 		pen.moveTo(x, y);
 	
-		x = (inner_radius * Math.cos(t)) + centre[0];
-		y = (inner_radius * Math.sin(t)) + centre[1];
+		x = inner_radius * Math.cos(t);
+		y = inner_radius * Math.sin(t);
 
 		pen.strokeStyle = 'rgba(0, 0, 0, ' + initial_opacity + ')';
 		pen.lineTo(x, y);
@@ -135,7 +134,7 @@ function drawSpiral(centre, sharpness, length, inner_radius, outer_radius, sprea
 function clearCanvas()
 {
 
-	pen.clearRect(0, 0, canvas.width, canvas.height);
+	pen.clearRect(canvas.width / -2, canvas.height / -2, canvas.width, canvas.height);
 
 }
 
